@@ -1,0 +1,58 @@
+body {
+  height: 100%;
+  margin: auto;
+}
+
+#logoNav {
+  width: 10%;
+}
+
+#footer {
+  background-color: black;
+  height: 50px;
+  margin-top: auto !important;
+}
+
+.sectionVue {
+  width: 70%;
+  margin: auto;
+}
+
+#articleBienvenue,
+.textDetailVoiture,
+.textDetailConstructeur {
+  text-align: justify !important ;
+  color: grey;
+}
+
+.textDetailConstructeur{
+    width: 50%;
+}
+
+#imgBuggati,
+#imgFerrari {
+  width: 20%;
+}
+
+#imgLamborghini {
+  width: 22%;
+}
+
+#logoLamborghini {
+  width: 20%;
+}
+
+.textFonts {
+  font-family: "Smooch", cursive;
+}
+
+.imgConstructeur {
+  width: 18% !important;
+}
+
+.imgVoitureDetail {
+  min-width: 30% !important;
+}
+.imgConstructeurDetail{
+    min-width: 20% !important;
+}

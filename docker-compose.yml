@@ -1,0 +1,43 @@
+services:
+  web:
+    image: php:8.2-apache
+    container_name: lamp_web_trois
+    volumes:
+      - ./web:/var/www/html
+    ports:
+      - "8086:80"
+    depends_on:
+      - db
+    restart: always
+    command: >
+       sh -c "apt update && apt install -y default-mysql-client && docker-php-ext-install pdo pdo_mysql && apache2-foreground"
+
+  db:
+    image: mysql:8.0
+    container_name: lamp_db_trois
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: lamp_db_trois
+      MYSQL_USER: lamp_user_trois
+      MYSQL_PASSWORD: lamp_password_trois
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3308:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: lamp_phpmyadmin_trois
+    environment:
+      PMA_HOST: lamp_db_trois
+      PMA_USER: lamp_user_trois
+      PMA_PASSWORD: lamp_password_trois
+      UPLOAD_LIMIT: 10M
+    ports:
+      - "8087:80"
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  db_data:
